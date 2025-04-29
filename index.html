@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Simple Calculator</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="calculator">
+         <div class="wind">
+            <div class="unselect"></div>
+            <input class="display">
+         </div>
+         <button onclick="appendToDisplay('1')" class="number_1">1</button>
+         <button onclick="appendToDisplay('2')" class="number_2">2</button>
+         <button onclick="appendToDisplay('3')" class="number_3">3</button>
+         <button onclick="appendToDisplay('4')" class="number_4">4</button>
+         <button onclick="appendToDisplay('5')" class="number_5">5</button>
+         <button onclick="appendToDisplay('6')" class="number_6">6</button>
+         <button onclick="appendToDisplay('7')" class="number_7">7</button>
+         <button onclick="appendToDisplay('8')" class="number_8">8</button>
+         <button onclick="appendToDisplay('9')" class="number_9">9</button>
+         <button onclick="appendToDisplay('0')" class="number_0">0</button>
+         <button onclick="clearAll()" class="delete-all"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+               viewBox="0 0 128 128"><!-- Icon from Noto Emoji (v1) by Google Inc - https://github.com/googlefonts/noto-emoji/blob/main/svg/LICENSE -->
+               <path fill="#fff"
+                  d="M111.21 107.69L99.92 85.46c-.16-.32-.46-.55-.81-.63s-.71.01-.99.23c-6.32 5.01-17.18 8.79-25.27 8.79c-15.63 0-26.55-10.58-26.55-25.73s10.92-25.73 26.55-25.73c8.46 0 17.14 2.72 22.64 7.11c.27.22.64.3.98.24c.34-.07.64-.29.81-.6l12.52-22.81c.28-.51.15-1.15-.31-1.51c-9.47-7.5-21.49-11.15-36.75-11.15c-32.5 0-56.08 22.91-56.08 54.46c0 31.56 23.58 54.46 56.08 54.46c14.87 0 27.72-4.52 38.18-13.45c.42-.36.54-.96.29-1.45" />
+            </svg></button>
+         <button onclick="appendToDisplay('.')" class="dot"><svg xmlns="http://www.w3.org/2000/svg" width="46"
+               height="46"
+               viewBox="0 0 24 24"><!-- Icon from coolicons by Kryston Schwarze - https://creativecommons.org/licenses/by/4.0/ -->
+               <path fill="currentColor" d="M12 14a2 2 0 1 1 0-4a2 2 0 0 1 0 4Z" />
+            </svg></button>
+         <button onclick="deletE()" class="delete"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+               viewBox="0 0 24 24"><!-- Icon from Remix Icon by Remix Design - https://github.com/Remix-Design/RemixIcon/blob/master/License -->
+               <path fill="#ff806e"
+                  d="M6.535 3h14.464a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6.535a1 1 0 0 1-.833-.445l-5.333-8a1 1 0 0 1 0-1.11l5.333-8A1 1 0 0 1 6.535 3m.535 2l-4.667 7l4.667 7H20V5zM13 10.586l2.828-2.829l1.414 1.415L14.414 12l2.828 2.828l-1.414 1.415l-2.829-2.829l-2.828 2.829l-1.414-1.415L11.585 12L8.757 9.172l1.414-1.415z" />
+            </svg></button>
+         <button onclick="appendToDisplay('+')" class="plus"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+               height="40"
+               viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+               <path fill="#ff806e"
+                  d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
+            </svg></button>
+         <button onclick="appendToDisplay('-')" class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+               height="40"
+               viewBox="0 0 24 24"><!-- Icon from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE -->
+               <path fill="#ff806e" d="M18 12.998H6a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2" />
+            </svg></button>
+         <button onclick="appendToDisplay('*')" class="multiplier"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+               height="40"
+               viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+               <path fill="#ff806e"
+                  d="M11 13H6q-.425 0-.712-.288T5 12t.288-.712T6 11h5V6q0-.425.288-.712T12 5t.713.288T13 6v5h5q.425 0 .713.288T19 12t-.288.713T18 13h-5v5q0 .425-.288.713T12 19t-.712-.288T11 18z" />
+            </svg></button>
+         <button onclick="appendToDisplay('/')" class="split"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+               height="40"
+               viewBox="0 0 24 24"><!-- Icon from IconaMoon by Dariush Habibpour - https://creativecommons.org/licenses/by/4.0/ -->
+               <g fill="none" stroke="#ff806e" stroke-linejoin="round">
+                  <path stroke-width="3" d="M12 6.5h.01v.01H12zm0 11h.01v.01H12z" />
+                  <path stroke-linecap="round" stroke-width="2" d="M18 12H6" />
+               </g>
+            </svg></button>
+         <button onclick="result()" class="result"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+               viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+               <path fill="currentColor"
+                  d="M6 16q-.417 0-.708-.291Q5 15.418 5 15.002t.292-.709T6 14h12q.417 0 .708.291q.292.291.292.707t-.292.709T18 16zm0-6q-.417 0-.708-.291Q5 9.418 5 9.002t.292-.709T6 8h12q.417 0 .708.291q.292.291.292.707t-.292.709T18 10z" />
+            </svg></button>
+         <a href="#"><button id="gradient" class="to-github"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                  height="32"
+                  viewBox="0 0 24 24"><!-- Icon from Iconoir by Luca Burgio - https://github.com/iconoir-icons/iconoir/blob/main/LICENSE -->
+                  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="1.5">
+                     <path
+                        d="M16 22.027v-2.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 0 0-1.5-3.75a5.07 5.07 0 0 0-.09-3.77s-1.18-.35-3.91 1.48a13.4 13.4 0 0 0-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 5 5.797a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58v2.87" />
+                     <path d="M9 20.027c-3 .973-5.5 0-7-3" />
+                  </g>
+               </svg></button></a>
+      </div>
+   </div>
+   <script src="script.js"></script>
+</body>
+
+</html>

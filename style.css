@@ -1,0 +1,279 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background: rgb(255, 250, 241);
+}
+
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100vh;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.calculator {
+   display: grid;
+   grid-template-areas:
+      "wind wind wind wind"
+      "delete-all delete split multiplier"
+      "number_7 number_8 number_9 minus"
+      "number_4 number_5 number_6 plus"
+      "number_1 number_2 number_3 result"
+      ". number_0 dot result";
+   gap: 18px 14px;
+   padding: 30px;
+   border-radius: 66px;
+   box-shadow: rgba(100, 100, 111, 0.456) 0px 7px 29px 0px;
+   background: rgb(255, 252, 249);
+}
+
+.wind {
+   position: relative;
+   display: flex;
+   justify-content: end;
+   align-items: end;
+   width: 354px;
+   height: 150px;
+   grid-area: wind;
+   background: #E5E5E5;
+   border-radius: 36px;
+   box-shadow: 0 4px 4px 0 #0000003d;
+   padding: 16px;
+}
+
+.unselect {
+   position: absolute;
+   left: 16px;
+   width: 324px;
+   height: 60px;
+   background: #00000000;
+}
+
+.display {
+   width: 322px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 56px;
+   font-weight: 700;
+   overflow: hidden;
+   background: inherit;
+   border: none;
+   outline: none;
+   text-align: end;
+   color: #3F4556;
+}
+
+button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 78px;
+   height: 78px;
+   border: none;
+   border-radius: 50%;
+   box-shadow: 0 4px 4px 0 #00000071;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   background: #353742;
+   color: #E5E5E5;
+   font-size: 36px;
+   font-weight: 600;
+   transition: .2s;
+   user-select: none;
+}
+
+button:hover {
+   cursor: pointer;
+   background: #515974;
+}
+
+.delete-all {
+   grid-area: delete-all;
+   background: #ff806e;
+}
+
+.delete-all:hover {
+   background: #e35b49;
+}
+
+.delete {
+   grid-area: delete;
+}
+
+.split {
+   grid-area: split;
+}
+
+.multiplier {
+   grid-area: multiplier;
+}
+
+.multiplier svg {
+   transform: rotate(45deg);
+}
+
+.number_7 {
+   grid-area: number_7;
+}
+
+.number_8 {
+   grid-area: number_8;
+}
+
+.number_9 {
+   grid-area: number_9;
+}
+
+.minus {
+   grid-area: minus;
+}
+
+.number_4 {
+   grid-area: number_4;
+}
+
+.number_5 {
+   grid-area: number_5;
+}
+
+.number_6 {
+   grid-area: number_6;
+}
+
+.plus {
+   grid-area: plus;
+}
+
+.number_1 {
+   grid-area: number_1;
+}
+
+.number_2 {
+   grid-area: number_2;
+}
+
+.number_3 {
+   grid-area: number_3;
+}
+
+.result {
+   height: 174px;
+   border-radius: 40px;
+   grid-area: result;
+   background: #ff806e;
+}
+
+.result:hover {
+   background: #e35b49;
+}
+
+.number_0 {
+   grid-area: number_0;
+}
+
+.dot {
+   grid-area: dot;
+   position: relative;
+}
+
+.dot svg {
+   position: absolute;
+   bottom: 6px;
+}
+
+#gradient {
+   position: relative;
+   opacity: 0.8;
+   background: none;
+}
+
+#gradient:after,
+#gradient:before {
+   content: '';
+   display: block;
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   border-radius: 50%;
+}
+
+#gradient:before {
+   background: linear-gradient(135deg, #ff0000 0%, #c300ff 100%);
+   animation: OpacityAnim 1.5s ease-in-out 0s infinite alternate;
+}
+
+#gradient:after {
+   background: linear-gradient(135deg, #8800ff 0%, #ff0000 100%);
+   animation: OpacityAnim 1.5s ease-in-out calc(-1 * 1.5s) infinite alternate;
+}
+
+@keyframes OpacityAnim {
+   0% {
+      opacity: 1
+   }
+
+   100% {
+      opacity: 0.0
+   }
+}
+
+@media(min-width:322px) and (max-width:451px) {
+   .calculator {
+      padding: 0;
+      border-radius: 66px;
+      box-shadow: none;
+      background: inherit;
+   }
+}
+
+@media(max-width:321px) {
+   .calculator {
+      padding: 0;
+      border-radius: 66px;
+      box-shadow: none;
+      background: inherit;
+      gap: 14px 10px;
+   }
+
+   .wind {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      width: max-content;
+   }
+
+   .unselect {
+      left: 16px;
+      width: 264px;
+   }
+
+   .display {
+      width: 264px;
+      font-size: 36px;
+   }
+
+   button {
+      width: 64px;
+      height: 64px;
+   }
+
+   .result {
+      height: 138px;
+      border-radius: 40px;
+      grid-area: result;
+      background: #ff806e;
+   }
+
+   .dot svg {
+      bottom: 0;
+   }
+
+}
